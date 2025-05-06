@@ -1,0 +1,13 @@
+.fundocor{
+    background-color: rgb(240, 255, 255);
+}
+.form-caixinha {
+    margin: 2rem;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,1 @@
+using FirstAppSrv as service from '../../srv/service';

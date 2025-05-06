@@ -1,0 +1,214 @@
+<mvc:View controllerName="firstapp.project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout.form"
+    xmlns:tnt="sap.tnt">
+    
+    <Page id="page" class = "fundocor" title="Cadastro de usuario">
+    <content>
+        <Image
+             src="https://tse1.mm.bing.net/th/id/OIP.teUyydzDY8P_xWqO4VdV5wHaJv?cb=iwp1rs=1pid=ImgDetMain"
+             alt="Logo SAP"
+             width="25px"
+             height="auto" 
+             id = "imagem"/>
+         <FormattedText id = "pularlinha"
+                        htmlText="&lt;br&gt;
+                                  &lt;br&gt;" />
+        <VBox id = "vbox" class="form-caixinha">
+            <layout:SimpleForm
+                id="formPessoa"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Thiago NDBS CAP 01">
+            
+                <Text id = "titulo" text="Preencha os dados da pessoa abaixo:" />
+
+                <Label id="cpfLabel" text="CPF"/>
+                <Input id="cpfInput"  value="{formModel>/cpf}" placeholder="Digite o CPF" maxLength="11" required="true" liveChange=".onCampoDigitado"/>
+
+                <Label id="nomeLabel" text="Nome"/>
+                <Input id="nomeInput" value="{formModel>/nome}" placeholder="Digite o nome completo" liveChange=".onCampoDigitado" />
+
+                <Label id="idadeLabel" text="Idade"/>
+                <Input id="idadeInput" value="{formModel>/idade}" placeholder="Digite a idade" liveChange=".onCampoDigitado" />
+
+            </layout:SimpleForm>
+
+                <tnt:InfoLabel id="statusLabel" text="Aguardando preenchimento" colorScheme="2" />
+
+                <HBox id="buttonContainer" justifyContent="Center" class="sapUiMediumMarginTop">
+                    <Button id="salvarBtn" text="Salvar" type="Emphasized" press=".onSalvarPress" width="300px"/>
+                </HBox>
+
+
+                <Text id = "tabela" text="Pessoas na tabela:" />
+
+            <Table id="pessoasTable" items="{/pessoa}">
+                <columns>
+                    <Column id="columCPF">
+                        <Text id="txtCPF" text="CPF" />
+                    </Column>
+                    <Column id="columNome">
+                        <Text id="txtNome" text="Nome" />
+                    </Column>
+                    <Column id="columIdade">
+                        <Text id="txtIdade" text="Idade" />
+                    </Column>
+                    <Column id="columAcoes">
+                        <Text id = "textoacao" text="Deletar" />
+                    </Column> 
+                    <Column id="columaltera">
+                        <Text id = "textoaltera" text="Alterar" />
+                    </Column> 
+                    
+                </columns>
+
+                <items>
+                    <ColumnListItem id="clmnListItem">
+                        <cells>
+                            <Text id="cellcpf" text="{cpf}" />
+                            <Text id="cellNome" text="{nome}" />
+                            <Text id="cellIdade" text="{idade}" />
+
+                            <!-- Botão de deletar -->
+                            <Button
+                                id="botaofuncao"
+                                icon="sap-icon://delete"
+                                type="Reject"
+                                press=".onDeletarPessoa"
+                                tooltip="Deletar">
+                                <customData>
+                                    <core:CustomData key="cpf" value="{cpf}" />
+                                </customData>
+                            </Button>
+                            <!-- Botão de altera -->
+                            <Button
+                                id = "botaoaltera"
+                                icon="sap-icon://edit"
+                                type="Emphasized"
+                                press=".onEditarPessoa"
+                                tooltip="Editar">
+                                <customData>
+                                    <core:CustomData key="cpf" value="{cpf}" />
+                                </customData>
+                            </Button>
+
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            <!-- pular linha aqui -->
+            <FormattedText id = "pularlinha2"
+                        htmlText="&lt;br&gt;
+                                  &lt;br&gt; 
+                                  &lt;br&gt;                      
+                                  &lt;br&gt;
+                                  &lt;br&gt;" />
+
+            <Text id="tituloCadastroProduto" text="Cadastrar novo produto:" class="sapUiMediumMarginTop" />
+
+            <layout:SimpleForm
+                id="formProduto"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Formulário de Produto">
+
+                <Label id="lblNomeProduto" text="Nome do Produto" />
+                <Input id="inputNomeProduto" value="{formModelProduto>/nome}" placeholder="Ex: Teclado Gamer" />
+
+                <Label id="lblPrecoProduto" text="Preço (R$)" />
+                <Input id="inputPrecoProduto" value="{formModelProduto>/preco}" type="Number" placeholder="Ex: 199.99" />
+
+                <Label id="lblCategoriaProduto" text="Categoria" />
+                <Input id="inputCategoriaProduto" value="{formModelProduto>/categoria}" placeholder="Ex: Periférico" />
+
+                <Label id="lblCpfProduto" text="CPF do Dono" />
+                <Input id="inputCpfProduto" value="{formModelProduto>/pessoa_cpf}" placeholder="Ex: 12345678901" required="true" maxLength="11" />
+
+                <Button id="btnSalvarProduto" text="Salvar Produto" type="Emphasized" press=".onSalvarProduto" />
+            </layout:SimpleForm>
+
+
+
+            <Text id="tituloProdutos" text="Produtos cadastrados:" class="sapUiSmallMarginTop" />
+
+            <Table id="produtosTable" items="{/produto}">
+                <columns>
+                    <Column id="colNomeProduto">
+                        <Text id="txtNomeProduto" text="Nome" />
+                    </Column>
+                    <Column id="colPrecoProduto">
+                        <Text id="txtPrecoProduto" text="Preço (R$)" />
+                    </Column>
+                    <Column id="colCategoriaProduto">
+                        <Text id="txtCategoriaProduto" text="Categoria" />
+                    </Column>
+                    <Column id="colCpfPessoaProduto">
+                        <Text id="txtCpfPessoaProduto" text="CPF da Pessoa" />
+                    </Column>
+                    <Column id="colAcoesProduto">
+                        <Text id="txtAcaoProduto" text="Deletar" />
+                    </Column>
+                    <Column id="colAcoesProdutoAlterar">
+                        <Text id="txtAcaoProdutoAlterar" text="Alterar" />
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem id="itemProduto">
+                        <cells>
+                            <Text id="cellNomeProduto" text="{nome}" />
+                            <Text id="cellPrecoProduto" text="{preco}" />
+                            <Text id="cellCategoriaProduto" text="{categoria}" />
+                            <Text id="cellCpfPessoaProduto" text="{pessoa_cpf}" />
+                            
+                            <!-- Botão de deletar -->
+                            <Button
+                                id="btnDeletarProduto"
+                                icon="sap-icon://delete"
+                                type="Reject"
+                                press=".onDeletarProduto"
+                                tooltip="Excluir Produto">
+
+                                <customData>
+                                    <core:CustomData key="id" value="{id}" />
+                                </customData>
+                            </Button> 
+
+                            <!-- Botão de alterar -->
+                            <Button
+                                id = "btnAlterarproduto"
+                                icon="sap-icon://edit"
+                                type="Emphasized"
+                                press=".onEditarProduto"
+                                tooltip="Editar">
+                                <customData>
+                                    <core:CustomData key="id" value="{id}" />
+                                </customData>
+                            </Button>              
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+
+
+    </content>
+    <footer>
+        <Bar class="rodapePersonalizado" id = "barra">
+            <contentLeft>
+                <Image
+                    src="https://tse2.mm.bing.net/th/id/OIP.qFLLs8wse7EGGwwS2N3jIgHaE8?cb=iwp1rs=1pid=ImgDetMain"
+                    width="100px"
+                    alt="Logo NTT"
+                    id = "imagemfooter" />
+            </contentLeft>
+            <contentRight>
+                <Text text="* 2025 Thiago NDBS" id = "textocopy"/>
+            </contentRight>
+        </Bar>
+    </footer>
+</Page>
+</mvc:View>
