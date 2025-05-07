@@ -4,10 +4,87 @@
     xmlns:core="sap.ui.core"
     xmlns:layout="sap.ui.layout.form"
     xmlns:tnt="sap.tnt">
-    
-     <Page id="page2" class = "fundocor" title="Segunda pagina">
-    <content>
-    <Text id = "teste" text="oioi"></Text>
-    </content>
+
+    <Page id="page2" class="fundocor" title="Detalhes da Pessoa">
+        <content>
+
+                    <Image
+                    id="logoImagem"
+                    src="https://tse1.mm.bing.net/th/id/OIP.teUyydzDY8P_xWqO4VdV5wHaJv?cb=iwp1rs=1pid=ImgDetMain"
+                    alt="Logo SAP"
+                    width="25px"
+                    height="auto" />
+
+            <VBox id="vboxDetalhes" class="form-caixinha">
+
+                <Button id="btnVoltar" text="Voltar" press=".onNavBack" class="sapUiSmallMarginTop" width="100px" />
+
+                <FormattedText id="espacoSuperior" htmlText="&lt;br&gt;" />
+
+                <layout:SimpleForm
+                    id="formPessoaDetalhe"
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    title="Informações da Pessoa">
+
+                    <Label id="lblCpf" text="CPF" />
+                    <Input id="txtCpf2" value="{cpf}" editable="false"/>
+
+                    <Label id="lblNome" text="Nome" />
+                    <Input id="txtNome2" value="{nome}" />
+
+                    <Label id="lblIdade" text="Idade" />
+                    <Input id="txtIdade2" value="{idade}" type="Number" />
+                </layout:SimpleForm>
+
+                <Button id="btnSalvarAlteracoes" text="Salvar Alterações" type="Emphasized" press=".onSalvarAlteracoes" />
+
+                <FormattedText id="espacoAbaixoForm" htmlText="&lt;br&gt;" />
+
+                
+
+
+                <Text id="txtTituloProdutos" text="Produtos dessa Pessoa:" class="sapUiSmallMarginTop" />
+
+                <Table id="produtosTable2" items="{produtos}">
+                    <columns>
+                        <Column id="colNome"><Text id="txtColNome" text="Nome" /></Column>
+                        <Column id="colPreco"><Text id="txtColPreco" text="Preço (R$)" /></Column>
+                        <Column id="colCategoria"><Text id="txtColCategoria" text="Categoria" /></Column>
+                        <Column id ="colacao"><Text id="txtColAcao" text="Ações" /></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem id="itemProdutoPessoa">
+                            <cells>
+                                <Input id="cellNomeProduto2" value="{nome}" />
+                                <Input id="cellPrecoProduto2" value="{preco}" />
+                                <Input id="cellCategoriaProduto2" value="{categoria}" />
+
+                                <Button id = "btnsalvarproduto2" text="Salvar" press=".onSalvarProdutoAlterado" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+
+                <FormattedText id="espacoRodape" htmlText="&lt;br&gt;&lt;br&gt;" />
+
+                <tnt:InfoLabel id="infoLabelFonte" text="Visualizando dados do backend via CAP CDS OData V4" colorScheme="1" />
+            </VBox>
+        </content>
+
+        <footer>
+            <Bar class="rodapePersonalizado" id="barraRodape">
+                <contentLeft>
+                    <Image
+                        id="logoRodape"
+                        src="https://tse2.mm.bing.net/th/id/OIP.qFLLs8wse7EGGwwS2N3jIgHaE8?cb=iwp1rs=1pid=ImgDetMain"
+                        width="100px"
+                        alt="Logo NTT" />
+                </contentLeft>
+                <contentRight>
+                    <Text id="textoCopyright" text="* 2025 Thiago NDBS" />
+                </contentRight>
+            </Bar>
+        </footer>
     </Page>
 </mvc:View>

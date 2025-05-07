@@ -27,12 +27,46 @@ sap.ui.define([
                 pessoa_cpf: ""
             });
             this.getView().setModel(oProdutoModel, "formModelProduto");
+
+            this.getOwnerComponent().getRouter()
+            .getRoute("RouteView1")
+            .attachPatternMatched(this._onRouteMatched, this);
+
+        },
+        //viajar entre telas
+       
+
+        onVerDetalhes: function (oEvent) {
+            var oItem = oEvent.getSource().getParent(); // ColumnListItem
+            var sCpf = oItem.getBindingContext().getProperty("cpf");
+        
+            this.getOwnerComponent().getRouter().navTo("View2", {
+                cpf: sCpf
+            });
         },
 
-        onNavButton:function(){
-            this.getOwnerComponent().getRouter().navTo("View2");
-        },
+        _onRouteMatched: function () {
+            // Atualiza tabela de pessoas
+            const oPessoasTable = this.byId("pessoasTable");
+            if (oPessoasTable) {
+                const oBinding = oPessoasTable.getBinding("items");
+                if (oBinding) {
+                    oBinding.refresh();
+                }
+            }
 
+            //a gente pode transformar isso numa função e dps só chamar caso tenha mt tabelas
+        
+            // Atualiza tabela de produtos
+            const oProdutosTable = this.byId("produtosTable");
+            if (oProdutosTable) {
+                const oBinding = oProdutosTable.getBinding("items");
+                if (oBinding) {
+                    oBinding.refresh();
+                }
+            }
+        },
+        
         _atualizarStatusLabel: function (texto, cor) {
             const label = this.byId("statusLabel");
             if (label) {

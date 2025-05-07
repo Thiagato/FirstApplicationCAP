@@ -16,7 +16,7 @@
              width="25px"
              height="auto" 
              id = "imagem"/>
-            <Button id = "btntrocartela" text="trocar a tela" press=".onNavButton"></Button>
+            
 
          <FormattedText id = "pularlinha"
                         htmlText="&lt;br&gt;
@@ -64,9 +64,10 @@
                     <Column id="columAcoes">
                         <Text id = "textoacao" text="Deletar" />
                     </Column> 
-                    <Column id="columaltera">
-                        <Text id = "textoaltera" text="Alterar" />
-                    </Column> 
+                
+                    <Column id="columdetalhes">
+                        <Text id = "textodetalhe" text="Detalhes" />
+                    </Column>
                     
                 </columns>
 
@@ -89,16 +90,8 @@
                                 </customData>
                             </Button>
                             <!-- Botão de altera -->
-                            <Button
-                                id = "botaoaltera"
-                                icon="sap-icon://edit"
-                                type="Emphasized"
-                                press=".onEditarPessoa"
-                                tooltip="Editar">
-                                <customData>
-                                    <core:CustomData key="cpf" value="{cpf}" />
-                                </customData>
-                            </Button>
+
+                            <Button id = "btndetalhes" icon="sap-icon://edit" text="Ver Detalhes" press=".onVerDetalhes" />
 
                         </cells>
                     </ColumnListItem>
@@ -156,9 +149,7 @@
                     <Column id="colAcoesProduto">
                         <Text id="txtAcaoProduto" text="Deletar" />
                     </Column>
-                    <Column id="colAcoesProdutoAlterar">
-                        <Text id="txtAcaoProdutoAlterar" text="Alterar" />
-                    </Column>
+                    
                 </columns>
 
                 <items>
@@ -182,17 +173,7 @@
                                 </customData>
                             </Button> 
 
-                            <!-- Botão de alterar -->
-                            <Button
-                                id = "btnAlterarproduto"
-                                icon="sap-icon://edit"
-                                type="Emphasized"
-                                press=".onEditarProduto"
-                                tooltip="Editar">
-                                <customData>
-                                    <core:CustomData key="id" value="{id}" />
-                                </customData>
-                            </Button>              
+                            
                         </cells>
                     </ColumnListItem>
                 </items>

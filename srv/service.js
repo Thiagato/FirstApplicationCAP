@@ -8,15 +8,15 @@ module.exports = cds.service.impl(async function () {
     const { cpf, nome, idade } = req.data;
 
     if (!cpf || !/^\d{11}$/.test(cpf)) {
-      return req.reject(400, 'CPF inválido. Deve conter 11 dígitos numéricos.');
+      return req.error(400, 'CPF inválido. Deve conter 11 dígitos numéricos.');
     }
 
     if (!nome || nome.trim().length < 3) {
-      return req.reject(400, 'Nome muito curto. Mínimo 3 caracteres.');
+      return req.error(400, 'Nome muito curto. Mínimo 3 caracteres.');
     }
 
     if (idade < 0 || idade > 120) {
-      return req.reject(400, 'Idade inválida. Deve ser entre 0 e 120.');
+      return req.error(400, 'Idade inválida. Deve ser entre 0 e 120.');
     }
 
     //ve o cpf se ele ja n existe
@@ -25,9 +25,23 @@ module.exports = cds.service.impl(async function () {
     );
 
     if (existing) {
-      return req.reject(400, `Já existe uma pessoa cadastrada com o CPF ${cpf}.`);
+      return req.error(400, `Já existe uma pessoa cadastrada com o CPF ${cpf}.`);
     }
   });
+
+  this.before('UPDATE', 'pessoa', async (req) => {
+    const { nome, idade } = req.data;
+  
+    if (nome !== undefined && nome.trim().length < 3) {
+      return req.error(400, 'Nome muito curto. Mínimo 3 caracteres.');
+    }
+  
+    if (idade !== undefined && (idade < 0 || idade > 120)) {
+      return req.error(400, 'Idade inválida. Deve ser entre 0 e 120.');
+    }
+  });
+
+
 
   this.on('READ', 'pessoa', async (req) => {
     const db = await cds.connect.to('db');
@@ -42,25 +56,25 @@ module.exports = cds.service.impl(async function () {
     const { nome, preco, categoria, pessoa_cpf } = req.data;
 
     if (!nome || nome.trim().length < 2) {
-      return req.reject(400, 'Nome do produto é obrigatório e deve ter pelo menos 2 caracteres.');
+      return req.error(400, 'Nome do produto é obrigatório e deve ter pelo menos 2 caracteres.');
     }
 
     if (preco <= 0) {
-      return req.reject(400, 'Preço inválido. Deve ser maior que zero.');
+      return req.error(400, 'Preço inválido. Deve ser maior que zero.');
     }
 
     if (!categoria || categoria.trim() === "") {
-      return req.reject(400, 'Categoria é obrigatória.');
+      return req.error(400, 'Categoria é obrigatória.');
     }
 
     if (!pessoa_cpf || pessoa_cpf.length !== 11 || !/^\d+$/.test(pessoa_cpf)) {
-      return req.reject(400, 'CPF inválido. Deve conter exatamente 11 números.');
+      return req.error(400, 'CPF inválido. Deve conter exatamente 11 números.');
     }
 
     //  Verifica se o CPF existe na tabela pessoa
     const cpfExiste = await db.run(SELECT.one.from(pessoa).where({ cpf: pessoa_cpf }));
     if (!cpfExiste) {
-      return req.reject(400, `Pessoa com CPF ${pessoa_cpf} não encontrada.`);
+      return req.error(400, `Pessoa com CPF ${pessoa_cpf} não encontrada.`);
     }
   });
 
