@@ -6,13 +6,18 @@
     xmlns:tnt="sap.tnt">
     
     <Page id="page" class = "fundocor" title="Cadastro de usuario">
+    
     <content>
+    
+
         <Image
              src="https://tse1.mm.bing.net/th/id/OIP.teUyydzDY8P_xWqO4VdV5wHaJv?cb=iwp1rs=1pid=ImgDetMain"
              alt="Logo SAP"
              width="25px"
              height="auto" 
              id = "imagem"/>
+            <Button id = "btntrocartela" text="trocar a tela" press=".onNavButton"></Button>
+
          <FormattedText id = "pularlinha"
                         htmlText="&lt;br&gt;
                                   &lt;br&gt;" />
@@ -22,7 +27,7 @@
                 editable="true"
                 layout="ResponsiveGridLayout"
                 title="Thiago NDBS CAP 01">
-            
+              
                 <Text id = "titulo" text="Preencha os dados da pessoa abaixo:" />
 
                 <Label id="cpfLabel" text="CPF"/>

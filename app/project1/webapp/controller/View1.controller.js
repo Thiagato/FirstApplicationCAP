@@ -29,6 +29,10 @@ sap.ui.define([
             this.getView().setModel(oProdutoModel, "formModelProduto");
         },
 
+        onNavButton:function(){
+            this.getOwnerComponent().getRouter().navTo("View2");
+        },
+
         _atualizarStatusLabel: function (texto, cor) {
             const label = this.byId("statusLabel");
             if (label) {

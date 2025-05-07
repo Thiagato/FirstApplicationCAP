@@ -101,12 +101,24 @@
           "target": [
             "TargetView1"
           ]
+        },
+        {
+          "name": "View2",
+          "pattern": "View2",
+          "target": [
+            "View2"
+          ]
         }
       ],
       "targets": {
         "TargetView1": {
           "id": "View1",
           "name": "View1"
+        },
+        "View2": {
+          "id": "View2",
+          "name": "View2",
+          "viewLevel": 2
         }
       }
     },

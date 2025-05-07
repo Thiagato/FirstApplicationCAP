@@ -1,0 +1,13 @@
+<mvc:View controllerName="firstapp.project1.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout.form"
+    xmlns:tnt="sap.tnt">
+    
+     <Page id="page2" class = "fundocor" title="Segunda pagina">
+    <content>
+    <Text id = "teste" text="oioi"></Text>
+    </content>
+    </Page>
+</mvc:View>
