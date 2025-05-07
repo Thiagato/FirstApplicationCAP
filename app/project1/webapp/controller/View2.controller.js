@@ -36,7 +36,17 @@ sap.ui.define([
             // Validações frontend
             const nome = data.nome?.trim();
             const idade = data.idade;
-        
+
+            if (!data.nome || data.nome.trim().length === 0) {
+                MessageToast.show("Nome é obrigatório.");
+                return;
+              }
+              
+            if (data.idade === null || data.idade === undefined || isNaN(data.idade)) {
+                MessageToast.show("Idade é obrigatória.");
+                return;
+            }
+
             if (!nome || nome.length < 3) {
                 MessageToast.show("Nome muito curto. Mínimo 3 caracteres.");
                 return;
@@ -69,6 +79,23 @@ sap.ui.define([
             const data = oContext.getObject();
         
             // Validações
+
+            if (data.nome === null) {
+                MessageToast.show("Nome do produto não pode ser nulo.");
+                return;
+              }
+              
+              if (data.preco === null) {
+                MessageToast.show("Preço não pode ser nulo.");
+                return;
+              }
+              
+              if (data.categoria === null) {
+                MessageToast.show("Categoria não pode ser nula.");
+                return;
+              }
+
+
             if (!data.nome || data.nome.trim().length < 2) {
                 sap.m.MessageToast.show("Nome do produto inválido.");
                 return;
@@ -87,7 +114,7 @@ sap.ui.define([
             try {
                 await oModel.submitBatch("$auto");
                 sap.m.MessageToast.show("Produto atualizado com sucesso!");
-                oContext.refresh(); // Atualiza a linha editada
+                oContext.refresh(); //Atualiza a linha editada
             } catch (e) {
                 console.error("Erro ao salvar produto:", e);
                 sap.m.MessageBox.error("Erro ao salvar: " + (e.message || "Erro desconhecido."));

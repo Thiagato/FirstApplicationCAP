@@ -196,6 +196,11 @@ sap.ui.define([
                 if (table) {
                     table.getBinding("items").refresh();
                 }
+                // Atualiza os dados da tabela produto tb
+                const tableproduto = this.byId("produtosTable");
+                if (tableproduto) {
+                    tableproduto.getBinding("items").refresh();
+                }
         
             } catch (error) {
                 sap.m.MessageBox.error("Erro ao deletar:\n" + error.message);
@@ -250,6 +255,8 @@ sap.ui.define([
                 if (table) {
                     table.getBinding("items").refresh();
                 }
+
+                
         
             } catch (error) {
                 const mensagem = error.message || (error.responseText ? error.responseText : "Erro inesperado.");

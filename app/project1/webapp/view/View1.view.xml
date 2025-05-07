@@ -89,7 +89,7 @@
                                     <core:CustomData key="cpf" value="{cpf}" />
                                 </customData>
                             </Button>
-                            <!-- Botão de altera -->
+                            <!-- Botão de altera que virou ver datalhes -->
 
                             <Button id = "btndetalhes" icon="sap-icon://edit" text="Ver Detalhes" press=".onVerDetalhes" />
 

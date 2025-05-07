@@ -31,10 +31,10 @@
                     <Input id="txtCpf2" value="{cpf}" editable="false"/>
 
                     <Label id="lblNome" text="Nome" />
-                    <Input id="txtNome2" value="{nome}" />
+                    <Input id="txtNome2" value="{nome}" required="true"/>
 
                     <Label id="lblIdade" text="Idade" />
-                    <Input id="txtIdade2" value="{idade}" type="Number" />
+                    <Input id="txtIdade2" value="{idade}" type="Number" required="true" />
                 </layout:SimpleForm>
 
                 <Button id="btnSalvarAlteracoes" text="Salvar Alterações" type="Emphasized" press=".onSalvarAlteracoes" />
@@ -56,9 +56,9 @@
                     <items>
                         <ColumnListItem id="itemProdutoPessoa">
                             <cells>
-                                <Input id="cellNomeProduto2" value="{nome}" />
-                                <Input id="cellPrecoProduto2" value="{preco}" />
-                                <Input id="cellCategoriaProduto2" value="{categoria}" />
+                                <Input id="cellNomeProduto2" value="{nome}" required="true"/>
+                                <Input id="cellPrecoProduto2" value="{preco}" required="true"/>
+                                <Input id="cellCategoriaProduto2" value="{categoria}" required="true"/>
 
                                 <Button id = "btnsalvarproduto2" text="Salvar" press=".onSalvarProdutoAlterado" />
                             </cells>
