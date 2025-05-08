@@ -63,9 +63,23 @@ modules:
       - firstappproject1.zip
       name: firstappproject1
       target-path: app/
+    - artifacts:
+      - firstappfiorielementsproject2.zip
+      name: firstappfiorielementsproject2
+      target-path: app/
 - name: firstappproject1
   type: html5
   path: app/project1
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: firstappfiorielementsproject2
+  type: html5
+  path: app/project2
   build-parameters:
     build-result: dist
     builder: custom
@@ -106,9 +120,18 @@ resources:
             ProxyType: Internet
             Type: HTTP
             URL: https://ui5.sap.com
+          - Authentication: NoAuthentication
+            HTML5.DynamicDestination: true
+            HTML5.ForwardAuthToken: true
+            Name: firstProjetct-srv-api
+            ProxyType: Internet
+            Type: HTTP
+            URL: ~{srv-api/srv-url}
           existing_destinations_policy: update
     service: destination
     service-plan: lite
+  requires:
+  - name: srv-api
 - name: firstProjetct-html5-repo-host
   type: org.cloudfoundry.managed-service
   parameters:

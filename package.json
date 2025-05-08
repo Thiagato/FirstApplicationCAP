@@ -23,7 +23,8 @@
     "watch-project1": "cds watch --open project1/webapp/index.html?sap-ui-xx-viewCache=false",
     "undeploy": "cf undeploy firstProjetct --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
-    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+    "watch-project2": "cds watch --open project2/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
@@ -35,5 +36,8 @@
     "sql": {
       "native_hana_associations": false
     }
-  }
+  },
+  "sapux": [
+    "app/project2"
+  ]
 }
