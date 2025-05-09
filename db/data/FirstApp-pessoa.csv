@@ -1,6 +1,6 @@
-cpf,nome,idade
-12345678901,Ana Maria,34
-98765432100,Carlos Henrique,45
-11122233344,Mariana Silva,28
-55566677788,João Pedro,52
-99988877766,Luciana Costa,39
+ID;cpf;nome;idade
+88bd8b0c-411e-48aa-9971-cce3e419fd36;12345678901;Ana Maria;34
+2c62a48b-c5f6-4686-9916-47f85b316337;98765432100;Carlos Henrique;45
+80cc2a9d-95cb-4f65-b76b-a2dfd6ed3e46;11122233344;Mariana Silva;28;
+d38c9803-a645-4962-883b-bb72fb7a9e7c;55566677788;João Pedro;52;
+84349bd3-3741-445d-9ad8-7aab5f669a80;99988877766;Luciana Costa;39;

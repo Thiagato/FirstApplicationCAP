@@ -1,9 +1,10 @@
-ID;NOME;PRECO;CATEGORIA;PESSOA_CPF
-7c6c12d7-0d34-4d2f-88c1-1f37f515ac55;Notebook Dell;4200.00;Eletrônicos;12345678901
-1b1a456e-17c2-4e3c-9a76-bb402eeb7f25;Smartphone Xiaomi;1800.50;Eletrônicos;98765432100
-d6c64e0c-7a4e-4bcf-9109-94ac8f3c83cf;Mesa de Escritório;899.99;Móveis;11122233344
-e3a8d9a9-4b21-4f1a-b409-e6a6be9a27ef;Teclado Mecânico;350.00;Acessórios;55566677788
-aa2fd9ab-5d26-4fe7-89cb-4a2a6e83d21b;Cadeira Gamer;1299.90;Móveis;99988877766
-aa2fd9ab-5d26-4fe7-90cb-4a2a6e83d21b;Mesa gamer;1299.90;Móveis;99988877766
-aa2fd9ab-5d26-4fe7-91cb-4a2a6e83d21b;mouse gamer;1299.90;Móveis;99988877766
-aa2fd9ab-5d26-4fe7-92cb-4a2a6e83d21b;TUDO GAMER;1234199.90;Móveis;99988877766
+ID;nome;preco;categoria;pessoa_ID
+7c6c12d7-0d34-4d2f-88c1-1f37f515ac55;Notebook Dell;4200.00;Eletrônicos;88bd8b0c-411e-48aa-9971-cce3e419fd36
+1b1a456e-17c2-4e3c-9a76-bb402eeb7f25;Smartphone Xiaomi;1800.50;Eletrônicos;2c62a48b-c5f6-4686-9916-47f85b316337
+d6c64e0c-7a4e-4bcf-9109-94ac8f3c83cf;Mesa de Escritório;899.99;Móveis;80cc2a9d-95cb-4f65-b76b-a2dfd6ed3e46
+e3a8d9a9-4b21-4f1a-b409-e6a6be9a27ef;Teclado Mecânico;350.00;Acessórios;d38c9803-a645-4962-883b-bb72fb7a9e7c
+aa2fd9ab-5d26-4fe7-89cb-4a2a6e83d21b;Cadeira Gamer;1299.90;Móveis;84349bd3-3741-445d-9ad8-7aab5f669a80
+aa2fd9ab-5d26-4fe7-90cb-4a2a6e83d21b;Mesa Gamer;1299.90;Móveis;84349bd3-3741-445d-9ad8-7aab5f669a80
+aa2fd9ab-5d26-4fe7-91cb-4a2a6e83d21b;Mouse Gamer;1299.90;Móveis;84349bd3-3741-445d-9ad8-7aab5f669a80
+aa2fd9ab-5d26-4fe7-92cb-4a2a6e83d21b;Tudo Gamer;1234199.90;Móveis;84349bd3-3741-445d-9ad8-7aab5f669a80
+

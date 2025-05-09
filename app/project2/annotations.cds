@@ -52,30 +52,39 @@ annotate service.pessoa with @(
             $Type : 'UI.DataField',
             Label : 'Idade',
             Value : idade,
-        },
+        }
+
     ],
+    UI.HeaderInfo : {
+        Title : {
+            $Type : 'UI.DataField',
+            Value : nome,
+        },
+        TypeName : '',
+        TypeNamePlural : '',
+    },
 );
 
 
 annotate service.produto with @(
     // UI.LineItem para a lista de produtos (dentro do facet na página da pessoa)
     UI.LineItem : [
-        {
-            $Type : 'UI.DataField',
-            Label : 'Nome do Produto',
-            Value : nome,
-        },
-        {
-            $Type : 'UI.DataField',
-            Label : 'Preço',
-            Value : preco,
-        },
-        {
-            $Type : 'UI.DataField',
-            Label : 'Categoria',
-            Value : categoria,
-        }
-    ],
+    {
+        $Type : 'UI.DataField',
+        Label : 'Nome do Produto',
+        Value : nome
+    },
+    {
+        $Type : 'UI.DataField',
+        Label : 'Preço',
+        Value : preco
+    },
+    {
+        $Type : 'UI.DataField',
+        Label : 'Categoria',
+        Value : categoria
+    }  
+],
     // UI.Identification (geralmente aparece no cabecalho ou secão principal)
     UI.Identification : [
         {
@@ -125,4 +134,16 @@ annotate service.produto with @(
             Target : '@UI.FieldGroup#GeneratedGroup'
         }
     ]
+);
+
+annotate service.pessoa with @(
+    Capabilities.Insertable : true,
+    Capabilities.Updatable  : true,
+    Capabilities.Deletable  : true
+);
+
+annotate service.produto with @(
+    Capabilities.Insertable : true,
+    Capabilities.Updatable  : true,
+    Capabilities.Deletable  : true
 );
