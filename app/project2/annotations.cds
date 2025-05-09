@@ -52,7 +52,12 @@ annotate service.pessoa with @(
             $Type : 'UI.DataField',
             Label : 'Idade',
             Value : idade,
-        }
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Rascunho?',
+            Value : IsActiveEntity 
+        },
 
     ],
     UI.HeaderInfo : {
@@ -62,6 +67,20 @@ annotate service.pessoa with @(
         },
         TypeName : '',
         TypeNamePlural : '',
+    },
+    UI.SelectionPresentationVariant #table : {
+        $Type : 'UI.SelectionPresentationVariantType',
+        PresentationVariant : {
+            $Type : 'UI.PresentationVariantType',
+            Visualizations : [
+                '@UI.LineItem',
+            ],
+        },
+        SelectionVariant : {
+            $Type : 'UI.SelectionVariantType',
+            SelectOptions : [
+            ],
+        },
     },
 );
 
@@ -125,7 +144,7 @@ annotate service.produto with @(
             }
         ],
     },
-    // Opcional: Adicionar um Facet para exibir o FieldGroup na página de detalhes do produto
+    // Adicionar um Facet para exibir o FieldGroup na página de detalhes do produto
     UI.Facets : [
         {
             $Type : 'UI.ReferenceFacet',

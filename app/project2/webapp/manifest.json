@@ -118,10 +118,18 @@
               "controlConfiguration": {
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
-                    "type": "ResponsiveTable"
+                    "type": "ResponsiveTable",
+                    "selectAll": true,
+                    "selectionLimit": 0
+                  },
+                  "columns": {
+                    "DataField::IsActiveEntity": {
+                      "availability": "Adaptation"
+                    }
                   }
                 }
-              }
+              },
+              "initialLoad": "Auto"
             }
           }
         },

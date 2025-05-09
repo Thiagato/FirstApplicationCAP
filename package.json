@@ -16,7 +16,8 @@
     "@cap-js/sqlite": "^1",
     "@sap/cds-dk": "^8",
     "rimraf": "^5.0.5",
-    "mbt": "^1.2.29"
+    "mbt": "^1.2.29",
+    "@cap-js/cds-typer": ">=0.1"
   },
   "scripts": {
     "start": "cds-serve",
@@ -24,7 +25,8 @@
     "undeploy": "cf undeploy firstProjetct --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
-    "watch-project2": "cds watch --open project2/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-project2": "cds watch --open project2/webapp/index.html?sap-ui-xx-viewCache=false",
+    "before:cds-watch": "cds-typer \"*\""
   },
   "cds": {
     "requires": {
@@ -39,5 +41,8 @@
   },
   "sapux": [
     "app/project2"
-  ]
+  ],
+  "imports": {
+    "#cds-models/*": "./@cds-models/*/index.js"
+  }
 }
